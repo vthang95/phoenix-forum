@@ -51,8 +51,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :phoenixforum, Phoenixforum.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("PG_USERNAME"),
+  password: System.get_env("PG_PASSWORD"),
+  hostname: System.get_env("PG_HOST") || "localhost",
   database: "phoenixforum_dev",
-  hostname: "localhost",
   pool_size: 10
